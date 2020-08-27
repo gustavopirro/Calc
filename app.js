@@ -33,7 +33,7 @@ function pushResultToBuffer1 () {
 }
 
 function updateVisor () {
-    document.getElementById("visor").innerHTML = onScreenMemory
+    document.getElementById("visor").innerHTML = onScreenMemory.substring(0,11)
 }
 
 function clr(){
