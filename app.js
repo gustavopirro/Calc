@@ -17,7 +17,6 @@ function operation (op) {
     currentOperation = op
     onScreenMemory = ""
     isFirstOperation = false
-    updateVisor()
 }
 
 function calculate () {
@@ -25,7 +24,7 @@ function calculate () {
 }
 
 function pushResultToBuffer1 () {
-    const result = calculate(currentOperation)
+    const result = calculate()
     bufferNumber1 = result
     bufferNumber2 = 0
     onScreenMemory = bufferNumber1.toString()

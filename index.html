@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="operations.js"></script> 
-    <script src="app.js"></script> 
+    <script src="operations.js"></script>
+    <script src="app.js"></script>
 </head>
+
 <body>
-    <div id="visor"></div>
-    <div class="calc">
-        <button onclick="button(7)">7</button>
-        <button onclick="button(8)">8</button>
-        <button onclick="button(9)">9</button>
-        <button onclick="operation(mult)">x</button>
-        <button onclick="button(4)">4</button>
-        <button onclick="button(5)">5</button>
-        <button onclick="button(6)">6</button>
-        <button onclick="operation(sub)">-</button>
-        <button onclick="button(1)">1</button>
-        <button onclick="button(2)">2</button>
-        <button onclick="button(3)">3</button>
-        <button onclick="operation(sum)">+</button>
-        <button onclick="clr()">C</button>
-        <button onclick="button(0)">0</button>
-        <button onclick="operation(div)">/</button>
-        <button onclick="pushResultToBuffer1()">=</button>
+    <div id="content">
+        <div id="visor"></div>
+        <div class="calc">
+            <button onclick="button(7)" >7</button>
+            <button onclick="button(8)" >8</button>
+            <button onclick="button(9)" >9</button>
+            <button onclick="operation(mult)" class="operation">x</button>
+            <button onclick="button(4)" >4</button>
+            <button onclick="button(5)" >5</button>
+            <button onclick="button(6)" >6</button>
+            <button onclick="operation(sub)" class="operation">-</button>
+            <button onclick="button(1)" >1</button>
+            <button onclick="button(2)" >2</button>
+            <button onclick="button(3)">3</button>
+            <button onclick="operation(sum)" class="operation">+</button>
+            <button onclick="clr()" class="operation">AC</button>
+            <button onclick="button(0)">0</button>
+            <button onclick="operation(div)" class="operation">/</button>
+            <button onclick="pushResultToBuffer1()" class="equal operation">=</button>
+        </div>
     </div>
 </body>
+
 </html>

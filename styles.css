@@ -1,26 +1,58 @@
-*{
-    box-sizing: border-box; 
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-#visor{
-    width: 198px;
-    margin-left: 1px;
-    height: 100px;
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+#content{
     border: solid black 1px;
+    margin: 8px auto;
+    width: 220px;
+    border-radius: 4px;
+}
+#visor{
+    width: 188px;
+    height: 70px;
     font-size: 20px;
+    border-radius: 4px;
+    color:  rgb(62, 62, 63);
+    padding-left: 5px;
+    margin: 8px auto;
+    margin-top: 14px;
+    background-color: whitesmoke;
+    font-size: 24px;
 }
 
 .calc{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    height: 400px;
+    height: 300px;
     width: 200px;
-    color: blue;
+    border-radius: 2px;
+    margin: 8px auto;
 }
 
-.calc div{
-    color: blue;
-    border: 1px solid black;
-    justify-items: center;
+.calc button {
+    background-color: whitesmoke;
+    border: solid white 1px;
+    border-radius: 4px;
+    color: rgb(62, 62, 63);
+    margin: 5px;
+    font-weight: bolder;
+    font-size: 16px;
+}
+
+.calc .operation{
+    background-color: rgba(172, 172, 172, 0.637);
+    color: white;
+}
+
+.calc button:hover{
+    background-color: #017bfc;
+    color: white;
+}
+
+.calc .equal {
+    background-color: #017bfc;
 }
