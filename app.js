@@ -1,69 +1,44 @@
-let number1, number2, lastOperation, memoryFull = 0, lastNumber;
-document.getElementById("visor").innerText = 0;
+let bufferNumber1 = 0, bufferNumber2 = 0, currentOperation = sum, isFirstOperation = true, onScreenMemory = "";
 
-function button(n) {
-    if (memoryFull === 1) {
-        number2 = document.getElementById("visor").innerHTML + n;
-        document.getElementById("visor").innerText = number2;
-
-        return;
-    }
-    if (document.getElementById("visor").innerText == 0) {
-        number1 = n;
-        document.getElementById("visor").innerText = number1;
+function button (n) {
+    onScreenMemory += n
+    if (isFirstOperation) {
+        bufferNumber1 = parseInt(onScreenMemory)
     } else {
-        number1 = document.getElementById("visor").innerHTML + n;
-        document.getElementById("visor").innerText = number1;
+        bufferNumber2 = parseInt(onScreenMemory)
     }
-    
-console.log("N1: " + number1 + "N2: " + number2 + "lastOp: " + lastOperation)
+    updateVisor()
 }
 
-function sum(x, y) { return parseFloat(x) + parseFloat(y) }
-function sub(x, y) { return parseFloat(x) - parseFloat(y) }
-function div(x, y) { return parseFloat(x) / parseFloat(y) }
-function mult(x, y) { return parseFloat(x) * parseFloat(y) }
-
-function operation(op) {
-
-    function isMemoryFull() {
-        if (memoryFull === 1 && number2 !== undefined) {
-            number1 = op((number1), (number2));
-            number2 = undefined;
-            document.getElementById("visor").innerText = number1;
-        } else {
-            memoryFull = 1;
-
-        }
-    }
-    
-console.log("N1: " + number1 + "N2: " + number2 + "lastOp: " + lastOperation)
-    lastOperation = op
-    
-console.log("N1: " + number1 + "N2: " + number2 + "lastOp: " + lastOperation)
-    isMemoryFull();
-    document.getElementById("visor").innerText = ""
+function operation (op) {
+    currentOperation = op
+    onScreenMemory = ""
+    isFirstOperation = false
+    updateVisor()
 }
 
-function equal() {
-    if (number1 !== undefined) {
-        memoryFull = 0;
-        if (number2 == undefined) {
-            document.getElementById("visor").innerText = parseFloat(number1)
-        } else {
-            
-console.log("N1: " + number1 + "N2: " + number2 + "lastOp: " + lastOperation)
-            number1 = lastOperation(parseFloat(number1), parseFloat(number2));
-        }
-        document.getElementById("visor").innerText = number1;
-        number2 = undefined;
-    }
+function calculate () {
+    return currentOperation(bufferNumber1, bufferNumber2)
 }
 
-function clr() {
-    number1 = undefined
-    number2 = undefined
-    lastOperation = undefined
-    memoryFull = 0
-    document.getElementById("visor").innerText = "0"
+function pushResultToBuffer1 () {
+    const result = calculate(currentOperation)
+    bufferNumber1 = result
+    bufferNumber2 = 0
+    onScreenMemory = bufferNumber1.toString()
+    isFirstOperation = true
+    updateVisor()
+}
+
+function updateVisor () {
+    document.getElementById("visor").innerHTML = onScreenMemory
+}
+
+function clr(){
+    bufferNumber1 = 0
+    bufferNumber2 = 0
+    currentOperation = sum
+    isFirstOperation = true
+    onScreenMemory = ""
+    updateVisor()
 }
