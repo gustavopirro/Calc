@@ -1,12 +1,19 @@
-let number1, number2, lastOperation, memoryFull = 0;
+let number1, number2, lastOperation, memoryFull = 0, lastNumber;
+document.getElementById("visor").innerText = 0;
 
 function button(n) {
-    if (memoryFull != 1) {
-        number1 = document.getElementById("visor").innerHTML + n;
-        document.getElementById("visor").innerText = number1;
-    } else {
+    if (memoryFull === 1) {
         number2 = document.getElementById("visor").innerHTML + n;
         document.getElementById("visor").innerText = number2;
+
+        return;
+    }
+    if (document.getElementById("visor").innerText == 0) {
+        number1 = n;
+        document.getElementById("visor").innerText = number1;
+    } else {
+        number1 = document.getElementById("visor").innerHTML + n;
+        document.getElementById("visor").innerText = number1;
     }
 }
 
@@ -18,7 +25,7 @@ function mult(x, y) { return parseFloat(x) * parseFloat(y) }
 function operation(op) {
 
     function isMemoryFull() {
-        if (memoryFull === 1) {
+        if (memoryFull === 1 && number2 !== undefined) {
             number1 = op((number1), (number2));
             number2 = undefined;
             document.getElementById("visor").innerText = number1;
@@ -30,15 +37,6 @@ function operation(op) {
     lastOperation = op
     isMemoryFull();
     document.getElementById("visor").innerText = ""
-}
-
-function clr(){
-    console.log("a")
-    number1 = undefined
-    number2 = undefined
-    lastOperation = undefined
-    memoryFull = 0
-    document.getElementById("visor").innerText = "0"
 }
 
 function equal() {
@@ -89,4 +87,13 @@ function equal() {
         }
 
     }
+}
+
+function clr() {
+    console.log("a")
+    number1 = undefined
+    number2 = undefined
+    lastOperation = undefined
+    memoryFull = 0
+    document.getElementById("visor").innerText = "0"
 }
