@@ -44,7 +44,7 @@ class Calculator {
     resetAllStates () {
         this.buffers[0] = 0;
         this.buffers[1] = 0;
-        this.currentOperation = sum;
+        this.currentOperation = Operation.sum;
         this.isFirstOperation = true;
         this.onScreenMemory = "";
 
