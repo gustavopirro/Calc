@@ -4,29 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <script src="operation.js"></script>
+    <script src="calculator.js"></script>
+
     <link rel="stylesheet" href="styles.css">
-    <script src="operations.js"></script> 
-    <script src="app.js"></script> 
 </head>
 <body>
     <div id="visor"></div>
     <div class="calc">
-        <button onclick="button(7)">7</button>
-        <button onclick="button(8)">8</button>
-        <button onclick="button(9)">9</button>
-        <button onclick="operation(mult)">x</button>
-        <button onclick="button(4)">4</button>
-        <button onclick="button(5)">5</button>
-        <button onclick="button(6)">6</button>
-        <button onclick="operation(sub)">-</button>
-        <button onclick="button(1)">1</button>
-        <button onclick="button(2)">2</button>
-        <button onclick="button(3)">3</button>
-        <button onclick="operation(sum)">+</button>
-        <button onclick="clr()">C</button>
-        <button onclick="button(0)">0</button>
-        <button onclick="operation(div)">/</button>
-        <button onclick="pushResultToBuffer1()">=</button>
+        <button onclick="calculator.pressNumber(7)">7</button>
+        <button onclick="calculator.pressNumber(8)">8</button>
+        <button onclick="calculator.pressNumber(9)">9</button>
+        <button onclick="calculator.pressOperation(Operation.multiply)">x</button>
+        <button onclick="calculator.pressNumber(4)">4</button>
+        <button onclick="calculator.pressNumber(5)">5</button>
+        <button onclick="calculator.pressNumber(6)">6</button>
+        <button onclick="calculator.pressOperation(Operation.subtract)">-</button>
+        <button onclick="calculator.pressNumber(1)">1</button>
+        <button onclick="calculator.pressNumber(2)">2</button>
+        <button onclick="calculator.pressNumber(3)">3</button>
+        <button onclick="calculator.pressOperation(Operation.add)">+</button>
+        <button onclick="calculator.clear()">C</button>
+        <button onclick="calculator.pressNumber(0)">0</button>
+        <button onclick="calculator.pressOperation(Operation.divide)">/</button>
+        <button onclick="calculator.pressEqual()">=</button>
     </div>
+
+    <script>
+        let calculator = new Calculator();
+    </script>
 </body>
 </html>
