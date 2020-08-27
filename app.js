@@ -1,4 +1,4 @@
-let bufferNumber1 = 0, bufferNumber2 = 0, currentOperation, isFirstOperation = true, onScreenMemory = "";
+let bufferNumber1 = 0, bufferNumber2 = 0, currentOperation = sum, isFirstOperation = true, onScreenMemory = "";
 
 function button (n) {
     onScreenMemory += n
@@ -35,9 +35,10 @@ function updateVisor () {
 }
 
 function clearAll(){
-    number1 = undefined
-    number2 = undefined
-    lastOperation = undefined
-    memoryFull = 0
-    document.getElementById("visor").innerText = ""
+    bufferNumber1 = 0
+    bufferNumber2 = 0
+    currentOperation = sum
+    isFirstOperation = true
+    onScreenMemory = ""
+    updateVisor()
 }
