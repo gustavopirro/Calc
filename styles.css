@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box; 
+}
+
+#visor{
+    width: 198px;
+    margin-left: 1px;
+    height: 100px;
+    border: solid black 1px;
+    font-size: 20px;
+}
+
+.calc{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 400px;
+    width: 200px;
+    color: blue;
+}
+
+.calc div{
+    color: blue;
+    border: 1px solid black;
+    justify-items: center;
+}
