@@ -11,6 +11,9 @@ function button (n) {
 }
 
 function operation (op) {
+    if (!isFirstOperation) {
+        pushResultToBuffer1()
+    }
     currentOperation = op
     onScreenMemory = ""
     isFirstOperation = false
