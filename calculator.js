@@ -1,7 +1,7 @@
 class Calculator {
     constructor () {
         this.buffers = [0, 0];
-        this.currentOperation = Operation.sum;
+        this.currentOperation = Operation.add;
         this.isFirstOperation = true;
         this.onScreenMemory = "";
     }
@@ -44,7 +44,7 @@ class Calculator {
     resetAllStates () {
         this.buffers[0] = 0;
         this.buffers[1] = 0;
-        this.currentOperation = Operation.sum;
+        this.currentOperation = Operation.add;
         this.isFirstOperation = true;
         this.onScreenMemory = "";
 
