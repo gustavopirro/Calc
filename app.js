@@ -28,7 +28,6 @@ function pushResultToBuffer1 () {
     const result = calculate(currentOperation)
     bufferNumber1 = result
     bufferNumber2 = 0
-    console.log(`buffer1: ${bufferNumber1}, buffer2: ${bufferNumber2}`)
     onScreenMemory = bufferNumber1.toString()
     isFirstOperation = true
     updateVisor()
