@@ -1,4 +1,4 @@
-# Calc
+# Calculator
 
 Calculator made with Vanilla Javascript, HTML and CSS
 
