@@ -34,7 +34,7 @@ function updateVisor () {
     document.getElementById("visor").innerHTML = onScreenMemory
 }
 
-function clearAll(){
+function clr(){
     bufferNumber1 = 0
     bufferNumber2 = 0
     currentOperation = sum
