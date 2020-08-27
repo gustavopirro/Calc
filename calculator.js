@@ -1,52 +1,52 @@
 class Calculator {
     constructor () {
-        this.buffers = [0, 0];
+        this.accumulators = [0, 0];
         this.currentOperation = Operation.add;
         this.isFirstOperation = true;
-        this.onScreenMemory = "";
+        this.screenBuffer = "";
     }
     pressNumber (n) {
-        this.onScreenMemory += n
+        this.screenBuffer += n
         if (this.isFirstOperation) {
-            this.buffers[0] = parseInt(this.onScreenMemory);
+            this.accumulators[0] = parseInt(this.screenBuffer);
         } else {
-            this.buffers[1] = parseInt(this.onScreenMemory);
+            this.accumulators[1] = parseInt(this.screenBuffer);
         }
         this.updateVisor();
     }
     pressOperation (operation) {
         if (!this.isFirstOperation) {
-            this.collapseBuffers();
+            this.collapseAccumulators();
         }
         this.currentOperation = operation;
-        this.onScreenMemory = "";
+        this.screenBuffer = "";
         this.isFirstOperation = false;
     }
-    calculateResultFromBuffers (operation) {
-        return operation(this.buffers[0], this.buffers[1]);
+    calculateResultFromAccumulators (operation) {
+        return operation(this.accumulators[0], this.accumulators[1]);
     }
-    collapseBuffers () {
-        const result = this.calculateResultFromBuffers(this.currentOperation);
+    collapseAccumulators () {
+        const result = this.calculateResultFromAccumulators(this.currentOperation);
 
-        this.buffers[0] = result;
-        this.buffers[1] = 0;
-        this.onScreenMemory = this.buffers[0].toString();
+        this.accumulators[0] = result;
+        this.accumulators[1] = 0;
+        this.screenBuffer = this.accumulators[0].toString();
         this.isFirstOperation = true;
 
         this.updateVisor();
     }
     pressEqual () {
-        this.collapseBuffers();
+        this.collapseAccumulators();
     }
     updateVisor () { // TODO: Move UI drawing code out of this class completely
-        document.getElementById("visor").innerHTML = this.onScreenMemory;
+        document.getElementById("visor").innerHTML = this.screenBuffer;
     }
     resetAllStates () {
-        this.buffers[0] = 0;
-        this.buffers[1] = 0;
+        this.accumulators[0] = 0;
+        this.accumulators[1] = 0;
         this.currentOperation = Operation.add;
         this.isFirstOperation = true;
-        this.onScreenMemory = "";
+        this.screenBuffer = "";
 
         this.updateVisor();
     }
