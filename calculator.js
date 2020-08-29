@@ -3,10 +3,11 @@ class Calculator {
         this.accumulators = [0, 0];
         this.currentOperation = Operation.add;
         this.isFirstOperation = true;
-        this.screenBuffer = "";
+        this.screenBuffer = "0";
+        this.updateVisor();
     }
     pressNumber (n) {
-        this.screenBuffer += n
+        this.screenBuffer = this.screenBuffer == "0" ? n : this.screenBuffer + n;
         if (this.isFirstOperation) {
             this.accumulators[0] = parseInt(this.screenBuffer);
         } else {
@@ -19,7 +20,7 @@ class Calculator {
             this.collapseAccumulators();
         }
         this.currentOperation = operation;
-        this.screenBuffer = "";
+        this.screenBuffer = "0";
         this.isFirstOperation = false;
     }
     calculateResultFromAccumulators (operation) {
@@ -46,7 +47,7 @@ class Calculator {
         this.accumulators[1] = 0;
         this.currentOperation = Operation.add;
         this.isFirstOperation = true;
-        this.screenBuffer = "";
+        this.screenBuffer = "0";
 
         this.updateVisor();
     }
